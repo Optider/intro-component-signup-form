@@ -1,0 +1,36 @@
+@mixin reset-styles {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin defaults() {
+  font: {
+    family: $font-family;
+    size: $font-size;
+  }
+  line-height: 1.7;
+}
+
+@mixin google-fonts($font) {
+  $font: unquote(
+    $string: $font,
+  );
+  @import url("https://fonts.googleapis.com/css?family=#{$font}:400,500,600,700&display=swap");
+}
+
+@mixin rounded($radius) {
+  border-radius: $radius;
+}
+
+@mixin small-screen() {
+  @media only screen and (max-width : $small-width){
+    @content;
+  }
+}
+
+@mixin large-screen() {
+  @media only screen and (max-width : $large-width){
+    @content;
+  }
+}
